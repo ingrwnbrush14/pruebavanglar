@@ -1,7 +1,6 @@
 <template>
   <div class="graphic">
-      <button @click="loadData">Cargar Datos</button>
-      <canvas id="chartcanvas" width="400" height="400">
+      <canvas id="chartcanvas" width="300" height="500">
       </canvas>
   </div>
 </template>
@@ -16,6 +15,9 @@ export default {
         return {
             questions: new Array(),
         }
+    },
+    mounted: function() {
+        this.loadData();
     },
     methods: {
         loadData: function () {
@@ -79,13 +81,21 @@ export default {
                 labels : labels,
                 datasets: [
                     {
+                        barPercentage: 1,
+                        categoryPercentage: 1,
                         label: 'Aciertos',
                         data: dataT,
+                        backgroundColor: 'rgba(54,73,93,.5)',
                     },
                     {
+                        barPercentage: 1,
+                        categoryPercentage: 1,
                         label: 'Errores',
                         data: dataF,
+                        backgroundColor: 'rgba(71, 183,132,.5)',
                     }
+                    
+                    
                 ]
             }
 
@@ -95,13 +105,6 @@ export default {
                 data: datasets,
                 options: {
                     responsive: true,
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Aciertos y Errores por Pregunta'
-                    }
                 }
             })
 

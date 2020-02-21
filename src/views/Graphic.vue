@@ -1,5 +1,6 @@
 <template>
   <div class="graphic">
+      <button @click="loadData">Cargar Datos</button> <br>
       <canvas id="chartcanvas" width="300" height="500">
       </canvas>
   </div>
@@ -105,6 +106,26 @@ export default {
                 data: datasets,
                 options: {
                     responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Preguntas Correctas/Incorrectas'
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display:true,
+                                labelString: 'Acierto/Errores'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display:true,
+                                labelString: 'Pregunta'
+                            }
+                        }]
+                    }
                 }
             })
 
